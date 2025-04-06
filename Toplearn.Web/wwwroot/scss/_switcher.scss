@@ -1,0 +1,33 @@
+.mode-btn {
+    position: fixed;
+    top: 28%;
+    left: 0px;
+    z-index: 1021;
+    color:$white;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    background-color: $primary;
+    font-size: 21px;
+    text-align: center;
+    .mode-light {
+        display: block;
+    }
+    .mode-dark {
+        display: none;
+    }
+}
+[data-bs-theme="dark"] {
+    .mode-light {
+        display: none;
+    }
+    .mode-dark {
+        display: block;
+    }
+}
+
+[dir="rtl"] {
+    .mode-btn {
+        right: 0px;
+    }
+}
