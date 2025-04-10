@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toplearn.Web", "Toplearn.Web\Toplearn.Web.csproj", "{BB78BBE2-2696-4601-80FB-F2220C3B87CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lans.Web", "Lans.Web\Lans.Web.csproj", "{BB78BBE2-2696-4601-80FB-F2220C3B87CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toplearn.DataLayer", "Toplearn.DataLayer\Toplearn.DataLayer.csproj", "{7AFC6169-37FA-4CD5-A345-D53B4523296E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lans.DataLayer", "Lans.DataLayer\Lans.DataLayer.csproj", "{7AFC6169-37FA-4CD5-A345-D53B4523296E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toplearn.Core", "Toplearn.Core\Toplearn.Core.csproj", "{83A2B3F1-5797-4A9F-B84D-832B133544D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lans.Core", "Lans.Core\Lans.Core.csproj", "{83A2B3F1-5797-4A9F-B84D-832B133544D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

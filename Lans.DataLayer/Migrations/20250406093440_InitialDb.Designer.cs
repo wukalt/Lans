@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Toplearn.DataLayer.Context;
+using Lans.DataLayer.Context;
 
 #nullable disable
 
-namespace Toplearn.DataLayer.Migrations
+namespace Lans.DataLayer.Migrations
 {
-    [DbContext(typeof(ToplearnDbContext))]
+    [DbContext(typeof(LansDbContext))]
     [Migration("20250406093440_InitialDb")]
     partial class InitialDb
     {
@@ -25,7 +25,7 @@ namespace Toplearn.DataLayer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Toplearn.DataLayer.Entities.User.Role", b =>
+            modelBuilder.Entity("Lans.DataLayer.Entities.User.Role", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -43,7 +43,7 @@ namespace Toplearn.DataLayer.Migrations
                     b.ToTable("Roles");
                 });
 
-            modelBuilder.Entity("Toplearn.DataLayer.Entities.User.User", b =>
+            modelBuilder.Entity("Lans.DataLayer.Entities.User.User", b =>
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
@@ -85,7 +85,7 @@ namespace Toplearn.DataLayer.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Toplearn.DataLayer.Entities.User.UserRole", b =>
+            modelBuilder.Entity("Lans.DataLayer.Entities.User.UserRole", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -108,15 +108,15 @@ namespace Toplearn.DataLayer.Migrations
                     b.ToTable("UserRoles");
                 });
 
-            modelBuilder.Entity("Toplearn.DataLayer.Entities.User.UserRole", b =>
+            modelBuilder.Entity("Lans.DataLayer.Entities.User.UserRole", b =>
                 {
-                    b.HasOne("Toplearn.DataLayer.Entities.User.Role", "Role")
+                    b.HasOne("Lans.DataLayer.Entities.User.Role", "Role")
                         .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Toplearn.DataLayer.Entities.User.User", "User")
+                    b.HasOne("Lans.DataLayer.Entities.User.User", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -127,12 +127,12 @@ namespace Toplearn.DataLayer.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Toplearn.DataLayer.Entities.User.Role", b =>
+            modelBuilder.Entity("Lans.DataLayer.Entities.User.Role", b =>
                 {
                     b.Navigation("UserRoles");
                 });
 
-            modelBuilder.Entity("Toplearn.DataLayer.Entities.User.User", b =>
+            modelBuilder.Entity("Lans.DataLayer.Entities.User.User", b =>
                 {
                     b.Navigation("UserRoles");
                 });

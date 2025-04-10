@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using Toplearn.DataLayer.Context;
+using Lans.DataLayer.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<ToplearnDbContext>(options =>
+builder.Services.AddDbContext<LansDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 

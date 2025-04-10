@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Toplearn.Web.Controllers;
+namespace Lans.Web.Controllers;
 
 public class HomeController : Controller
 {

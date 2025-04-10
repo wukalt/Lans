@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Toplearn.DataLayer.Entities.User;
+namespace Lans.DataLayer.Entities.User;
 
 public class Role
 {

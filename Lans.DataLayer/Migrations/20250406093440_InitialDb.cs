@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Toplearn.DataLayer.Migrations
+namespace Lans.DataLayer.Migrations
 {
     /// <inheritdoc />
     public partial class InitialDb : Migration
