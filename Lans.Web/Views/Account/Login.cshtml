@@ -1,4 +1,6 @@
-﻿<div class="modal-dialog modal-dialog-centered d-flex align-items-center justify-content-center mt-4" role="document">
+﻿@model Lans.Core.DTOs.LoginViewModel
+
+<div class="modal-dialog modal-dialog-centered d-flex align-items-center justify-content-center mt-4" role="document">
 	<div class="modal-content login-page mt-4">
 		<div class="modal-body mt-4">
 			<div class="text-center mt-4">
@@ -6,19 +8,23 @@
 				<h4 class="text-uppercase text-primary"><b>وارد شدن</b></h4>
 			</div>
 			<div class="login-form mt-4">
-				<form>
+				<form method="post" action="/Login">
 					<div class="form-group mt-3">
-						<label for="exampleInputEmail1">نام کاربری / ایمیل</label>
-						<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Youremail@gmail.com">
+						<label for="exampleInputEmail1">ایمیل</label>
+						<input asp-for="Email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Youremail@gmail.com">
+						<span asp-validation-for="Email" class="text-danger"></span>
 					</div>
 					<div class="form-group mt-3">
 						<label for="exampleInputPassword1">کلمه عبور</label>
-						<input type="password" class="form-control" id="exampleInputPassword1" placeholder="کلمه عبور">
+						<input asp-for="Password" type="password" class="form-control" id="exampleInputPassword1" placeholder="کلمه عبور">
+						<span asp-validation-for="Password" class="text-danger"></span>
 					</div>
 					<a href="/ForgetPassword" class="float-end text-muted font-size-15">رمز عبور را فراموش کرده اید؟</a><div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="customCheck1"><label class="custom-control-label font-size-15" for="customCheck1">مرا به خاطر بسپار</label>
+						<input asp-for="RemmemberMe" type="checkbox" class="custom-control-input" id="customCheck1"><label class="custom-control-label font-size-15" for="customCheck1">مرا به خاطر بسپار</label>
 					</div>
-					<div class="text-center mt-4"><button type="submit" class="btn btn-primary">وارد شدن<i class="icon-size-15 icon ms-1" data-feather="arrow-right-circle"></i></button></div>
+					<div class="text-center mt-4">
+						<button type="submit" class="btn btn-primary">وارد شدن<i class="icon-size-15 icon ms-1" data-feather="arrow-right-circle"></i></button>
+					</div>
 				</form>
 				<partial name="_SocialMedia" />
 			</div>

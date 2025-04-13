@@ -31,7 +31,6 @@ namespace Lans.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("UserName", "اطلاعات وارد شده صحیح نمیباشد");
                 return View(register);
             }
 
@@ -72,6 +71,39 @@ namespace Lans.Web.Controllers
         public IActionResult Login()
         {
             return View();
+        }
+
+        [HttpPost]
+        [Route("Login")]
+        public IActionResult Login(LoginViewModel login)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(login);
+            }
+
+            var user = _userService.LoginUser(login);
+            if (user is not null)
+            {
+                if (user.IsActive)
+                {
+                    // TODO : login user
+                    return Redirect("/");
+                }
+                else
+                {
+                    ModelState.AddModelError("Email", "حساب کاربری شما فعال نمیباشد.");
+                }
+            }
+
+            //if (!_userService.IsEmailExist(FixedString.FixEmailString(login.Email)))
+            //{
+            //    ModelState.AddModelError("Email", "برای ایمیل وارد شده حسابی پیدا نشد.");
+            //    return View(login);
+            //}
+
+            ModelState.AddModelError("Email", "کاربری با مشخصات وارد شده پیدا نشد");
+            return View(login);
         }
 
         #endregion

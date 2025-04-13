@@ -1,4 +1,7 @@
-﻿using Lans.Core.Services.Interfaces;
+﻿using Lans.Core.Convertors;
+using Lans.Core.DTOs;
+using Lans.Core.Security;
+using Lans.Core.Services.Interfaces;
 using Lans.DataLayer.Context;
 using Lans.DataLayer.Entities.User;
 
@@ -28,5 +31,13 @@ public class UserService : IUserService
     public bool IsUserNameExist(string username)
     {
         return _context.Users.Any(u => u.UserName == username);
+    }
+
+    public User LoginUser(LoginViewModel login)
+    {
+        string pass = PasswordHelpers.EncodePasswordMD5(login.Password);
+        string email = FixedString.FixEmailString(login.Email);
+
+        return _context.Users.SingleOrDefault(u => u.Email == email && u.Password == pass)!;
     }
 }

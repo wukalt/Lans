@@ -42,4 +42,7 @@ public class LoginViewModel
     [Required(ErrorMessage = "کلمه عبور اجباری میباشد")]
     [MaxLength(100, ErrorMessage = "طول کلمه عبور نمیتواند از {0} بیشتر باشد")]
     public string Password { get; set; } = null!;
+
+    [Display(Name = "مرا به خاطر بسپار")]
+    public bool RemmemberMe{ get; set; }
 }
