@@ -7,29 +7,20 @@
 			</div>
 			<div class="login-form mt-4">
 				<form>
-					<div class="form-group">
-						<label for="exampleInputEmail1">نام کاربری / ایمیل</label><input type="email" class="form-control" id="exampleInputEmail1" placeholder="Youremail@gmail.com">
+					<div class="form-group mt-3">
+						<label for="exampleInputEmail1">نام کاربری / ایمیل</label>
+						<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Youremail@gmail.com">
 					</div>
-					<div class="form-group">
-						<label for="exampleInputPassword1">کلمه عبور</label><input type="password" class="form-control" id="exampleInputPassword1" placeholder="کلمه عبور">
+					<div class="form-group mt-3">
+						<label for="exampleInputPassword1">کلمه عبور</label>
+						<input type="password" class="form-control" id="exampleInputPassword1" placeholder="کلمه عبور">
 					</div>
-					<a href="#" class="float-end text-muted font-size-15">رمز عبور را فراموش کرده اید؟</a><div class="custom-control custom-checkbox">
+					<a href="/ForgetPassword" class="float-end text-muted font-size-15">رمز عبور را فراموش کرده اید؟</a><div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="customCheck1"><label class="custom-control-label font-size-15" for="customCheck1">مرا به خاطر بسپار</label>
 					</div>
 					<div class="text-center mt-4"><button type="submit" class="btn btn-primary">وارد شدن<i class="icon-size-15 icon ms-1" data-feather="arrow-right-circle"></i></button></div>
 				</form>
-				<div class="position-relative text-center mt-4">
-					<span class="login-border"></span><p class="social-login text-muted font-size-17">ورود به سیستم اجتماعی</p>
-				</div>
-				<div class="text-center">
-					<ul class="list-inline mt-2 mb-3">
-						<li class="list-inline-item me-3"><a href="#" class="login-social-icon icon-primary"><i class="icon-xs" data-feather="facebook"></i></a></li>
-						<li class="list-inline-item me-3"><a href="#" class="login-social-icon icon-info"><i class="icon-xs" data-feather="twitter"></i></a></li>
-						<li class="list-inline-item me-3"><a href="#" class="login-social-icon icon-danger"><i class="icon-xs" data-feather="instagram"></i></a></li>
-						<li class="list-inline-item"><a href="#" class="login-social-icon icon-success"><i class="icon-xs" data-feather="linkedin"></i></a></li>
-					</ul>
-					<p class="text-muted mb-0">کاربر جدید؟<a href="#" class="text-primary">ثبت نام</a></p>
-				</div>
+				<partial name="_SocialMedia" />
 			</div>
 		</div>
 	</div>
