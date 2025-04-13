@@ -29,3 +29,17 @@ public class RegisterViewModel
     [Compare("Password", ErrorMessage = "کلمه عبور مطابقت ندارد")]
     public string ReEnterPassword { get; set; } = null!;
 }
+
+public class LoginViewModel
+{
+    [Display(Name = "ایمیل")]
+    [Required(ErrorMessage = "ایمیل اجباری میباشد")]
+    [MaxLength(200, ErrorMessage = "طول ایمیل نمیتواند از {0} بیشتر باشد")]
+    [EmailAddress(ErrorMessage = "فرمت وارد شده درست نمیباشد")]
+    public string Email { get; set; } = null!;
+
+    [Display(Name = "کلمه عبور")]
+    [Required(ErrorMessage = "کلمه عبور اجباری میباشد")]
+    [MaxLength(100, ErrorMessage = "طول کلمه عبور نمیتواند از {0} بیشتر باشد")]
+    public string Password { get; set; } = null!;
+}
