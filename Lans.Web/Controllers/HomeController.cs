@@ -1,9 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Lans.Web.Controllers;
 
 public class HomeController : Controller
 {
+    [Route("Test")]
+    [Authorize]
+    public IActionResult Test()
+    {
+        return View();
+    }
+
+
     public IActionResult Index()
     {
         return View();

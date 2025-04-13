@@ -1,9 +1,12 @@
-﻿using Lans.Core.Convertors;
+﻿using System.Security.Claims;
+using Lans.Core.Convertors;
 using Lans.Core.DTOs;
 using Lans.Core.Generators;
 using Lans.Core.Security;
 using Lans.Core.Services.Interfaces;
 using Lans.DataLayer.Entities.User;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lans.Web.Controllers
@@ -87,7 +90,21 @@ namespace Lans.Web.Controllers
             {
                 if (user.IsActive)
                 {
-                    // TODO : login user
+                    var claimes = new List<Claim>()
+                    {
+                        new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
+                        new Claim(ClaimTypes.Name, user.UserName)
+                    };
+                    var identity = new ClaimsIdentity(claimes, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var pricipal = new ClaimsPrincipal(identity);
+                    var properties = new AuthenticationProperties()
+                    {
+                        IsPersistent = login.RemmemberMe
+                    };
+
+                    HttpContext.SignInAsync(pricipal, properties);
+                    ViewBag.IsSuccess = true;
+
                     return Redirect("/");
                 }
                 else
@@ -111,5 +128,12 @@ namespace Lans.Web.Controllers
         }
 
         #endregion
+
+        [Route("Logout")]
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return Redirect("/Register");
+        }
     }
 }
