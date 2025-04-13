@@ -1,0 +1,21 @@
+﻿<div class="modal-dialog modal-dialog-centered d-flex align-items-center justify-content-center mt-4" role="document">
+	<div class="modal-content login-page mt-4">
+		<div class="modal-body mt-4">
+			<div class="text-center mt-4">
+				<h3 class="title mb-4 mt-4">به Lezir خوش آمدید</h3>
+				@if (ViewBag.isActive)
+				{
+					<div class="alert alert-success">
+						<p>حساب شما با موفقیت فعال شد!</p>
+					</div>
+				}
+				else
+				{
+					<div class="alert alert-danger">
+						<p>مشکلی پیش آمده لطفا دوباره امتحان کنید.</p>
+					</div>
+				}
+			</div>
+		</div>
+	</div>
+</div>

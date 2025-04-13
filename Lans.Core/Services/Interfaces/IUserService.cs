@@ -9,4 +9,5 @@ public interface IUserService
     bool IsEmailExist(string email);
     int InsertUser(User user);
     User LoginUser(LoginViewModel login);
+    bool ActiveAccount(string activationCode);
 }

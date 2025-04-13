@@ -1,5 +1,6 @@
 ﻿using Lans.Core.Convertors;
 using Lans.Core.DTOs;
+using Lans.Core.Generators;
 using Lans.Core.Security;
 using Lans.Core.Services.Interfaces;
 using Lans.DataLayer.Context;
@@ -14,6 +15,18 @@ public class UserService : IUserService
     public UserService(LansDbContext context)
     {
         _context = context;
+    }
+
+    public bool ActiveAccount(string activationCode)
+    {
+        var user = _context.Users.SingleOrDefault(u => u.ActiveCode == activationCode);
+        if (user is null || user.IsActive)
+            return false;
+
+        user.IsActive = true;
+        user.ActiveCode = Generator.GenerateActivationCode();
+        _context.SaveChanges();
+        return true;
     }
 
     public int InsertUser(User user)

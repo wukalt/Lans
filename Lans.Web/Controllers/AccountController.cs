@@ -96,14 +96,18 @@ namespace Lans.Web.Controllers
                 }
             }
 
-            //if (!_userService.IsEmailExist(FixedString.FixEmailString(login.Email)))
-            //{
-            //    ModelState.AddModelError("Email", "برای ایمیل وارد شده حسابی پیدا نشد.");
-            //    return View(login);
-            //}
-
             ModelState.AddModelError("Email", "کاربری با مشخصات وارد شده پیدا نشد");
             return View(login);
+        }
+
+        #endregion
+
+        #region ActiveAccount 
+
+        public IActionResult ActivateAccount(string id)
+        {
+            ViewBag.isActive = _userService.ActiveAccount(id);
+            return View();
         }
 
         #endregion
