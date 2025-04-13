@@ -9,28 +9,27 @@
 			</div>
 			<div class="login-form mt-4">
 				<form method="post" action="/Register">
-					<div class="form-group">
+					<div class="form-group mt-3">
 						<label for="exampleInputUsername">نام کاربری</label>
 						<input asp-for="UserName" type="text" class="form-control" id="exampleInputUsername" placeholder="نام را وارد کنید">
 						<span asp-validation-for="UserName" class="text-danger"></span>
 					</div>
-					<div class="form-group">
+					<div class="form-group mt-3">
 						<label for="exampleInputEmail2">ایمیل</label>
 						<input asp-for="Email" type="email" class="form-control" id="exampleInputEmail2" placeholder="Youremail@gmail.com">
 						<span asp-validation-for="Email" class="text-danger"></span>
 					</div>
-					<div class="form-group">
+					<div class="form-group mt-3">
 						<label for="exampleInputPassword2">کلمه عبور</label>
 						<input asp-for="Password" type="password" class="form-control" id="exampleInputPassword2" placeholder="کلمه عبور">
 						<span asp-validation-for="Password" class="text-danger"></span>
 					</div>
-					<div class="form-group">
+					<div class="form-group mt-3">
 						<label for="exampleInputPassword2">تکرار کلمه عبور</label>
 						<input asp-for="ReEnterPassword" type="password" class="form-control" id="exampleInputPassword2" placeholder="تکرار کلمه عبور">
 						<span asp-validation-for="ReEnterPassword" class="text-danger"></span>
 					</div>
 					<a href="/ForgetPassword" class="float-end text-muted font-size-15">رمز عبور را فراموش کرده اید؟</a><div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="customCheck2"><label class="custom-control-label font-size-15" for="customCheck2">مرا به خاطر بسپار</label>
 					</div>
 					<div class="text-center mt-4">
 						<button type="submit" class="btn btn-primary">ثبت نام<i class="icon-size-15 icon ms-1" data-feather="arrow-right-circle"></i></button>
