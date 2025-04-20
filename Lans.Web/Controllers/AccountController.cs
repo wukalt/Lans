@@ -3,6 +3,7 @@ using Lans.Core.Convertors;
 using Lans.Core.DTOs;
 using Lans.Core.Generators;
 using Lans.Core.Security;
+using Lans.Core.Senders;
 using Lans.Core.Services.Interfaces;
 using Lans.DataLayer.Entities.User;
 using Microsoft.AspNetCore.Authentication;
@@ -14,10 +15,12 @@ namespace Lans.Web.Controllers
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
+        private readonly IViewRenderService _viewRenderService;
 
-        public AccountController(IUserService userService)
+        public AccountController(IUserService userService , IViewRenderService viewRenderService)
         {
             _userService = userService;
+            _viewRenderService = viewRenderService;
         }
 
         #region Register
@@ -62,6 +65,8 @@ namespace Lans.Web.Controllers
 
             _userService.InsertUser(user);
 
+            string body = _viewRenderService.RenderToStringAsync("_ActiveEmail", user);
+            EmailSender.Send(user.Email, "فعالسازی حساب", body);
 
             return View("SuccessfulRegister", user);
         }
